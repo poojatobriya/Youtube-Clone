@@ -1,17 +1,17 @@
 
 import React from 'react';
-import Navbar from './Components/Navbar';
-import './App.css';
-import Sidebar from './Components/Sidebar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from './Components/HomePage';
+import VideoPage from './Components/VideoPage';
 
 function App() {
   return (
-    
-    <div className="App">
-    <Navbar/>
-    <Sidebar/>
-  </div>
-
+    <Router>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/video/:videoId" component={VideoPage} />
+      </Switch>
+    </Router>
   );
 }
 

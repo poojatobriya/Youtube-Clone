@@ -1,0 +1,15 @@
+/* App.css */
+
+.App {
+    display: flex;
+  }
+  
+  .main-content {
+    margin-left: 250px; /* Match sidebar width */
+    width: calc(100% - 250px); /* Adjust width to account for sidebar */
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
