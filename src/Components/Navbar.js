@@ -1,17 +1,33 @@
-import React from 'react'
+import React from 'react';
+import './Navbar.css';
 
-const navbar = () => {
+function Navbar() {
   return (
-    <nav className="navbar bg-body-tertiary">
-  <div className="container-fluid">
-    <a className="navbar-brand">Navbar</a>
-    <form className="d-flex" role="search">
-      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button className="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-  )
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a className="navbar-brand" href="/">
+        <img
+          src="C:\Users\drama\Desktop\youtube-clone\src\Components\images.jpg" 
+          alt="YouTube"
+          className="navbar__logo"
+        />
+      </a>
+     
+
+      
+        <form className="form-inline my-2 my-lg-0">
+            
+          <input
+        
+            className="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+         <button type="button" class="btn btn-danger btn-sm " >Search</button>
+        </form>
+        
+    </nav>
+  );
 }
 
-export default navbar
+export default Navbar;

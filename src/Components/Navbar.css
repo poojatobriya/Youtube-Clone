@@ -1,0 +1,29 @@
+/* Navbar.css */
+
+/* Navbar.css */
+
+.navbar__logo {
+    height: 80px;
+  }
+  
+  
+  
+  
+  .form-inline {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  .form-inline .form-control {
+    width: 250px;
+  }
+  
+  /* @media (max-width: 992px) {
+    .form-inline .form-control {
+      width: 100%;
+    }
+  }
+   */
+  
