@@ -5,36 +5,37 @@
   
   function Sidebar() {
     return (
-      <div className="sidebar d-flex flex-column bg-dark">
-        <a href="/" className="sidebar__item d-flex align-items-center p-4 text-light">
-          <i className="fas fa-home"></i>
-          <span className="ml-3">Home</span>
+      <div class="sidebar">
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
         </a>
-        <a href="/" className="sidebar__item d-flex align-items-center p-4 text-light">
-          <i className="fas fa-fire"></i>
-          <span className="ml-3">Trending</span>
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-fire"></i>
+            <span>Trending</span>
         </a>
-        <a href="/" className="sidebar__item d-flex align-items-center p-4 text-light">
-          <i className="fas fa-thumbs-up"></i>
-          <span className="ml-3">Liked Videos</span>
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-play-circle"></i>
+            <span>Subscriptions</span>
         </a>
-        <a href="/" className="sidebar__item d-flex align-items-center p-4 text-light">
-          <i className="fas fa-play-circle"></i>
-          <span className="ml-3">Subscriptions</span>
+        <hr/>
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-thumbs-up"></i>
+            <span>Liked Videos</span>
         </a>
-        <a href="/" className="sidebar__item d-flex align-items-center p-4 text-light">
-          <i className="fas fa-history"></i>
-          <span className="ml-3">History</span>
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-history"></i>
+            <span>History</span>
         </a>
-        <a href="/" className="sidebar__item d-flex align-items-center p-4 text-light">
-          <i className="fas fa-clock"></i>
-          <span className="ml-3">Watch Later</span>
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-clock"></i>
+            <span>Watch Later</span>
         </a>
-        <a href="/" className="sidebar__item d-flex align-items-center p-4 text-light">
-          <i className="fas fa-cog"></i>
-          <span className="ml-3">Settings</span>
+        <a href="#" class="sidebar-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
         </a>
-      </div>
+    </div>
     );
   }
   
