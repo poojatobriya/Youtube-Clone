@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Feed.css';
 import { Link } from "react-router-dom";
+// import {moment} from 'react-moment';
 import thumbnail1 from '../../assets/thumbnail1.jpeg';
 import thumbnail2 from '../../assets/thumbnail2.jpeg';
 import thumbnail3 from '../../assets/thumbnail3.png';
@@ -21,7 +22,7 @@ const Feed = ({category}) => {
     // }
 
     const fetchData = async () => {
-        const videoListUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`;
+        const videoListUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`;
         
         try {
             const response = await fetch(videoListUrl);
@@ -43,9 +44,9 @@ const Feed = ({category}) => {
             return(
                 <Link to={`Video/${item.snippet.categoryId}/${item.id}`} className='Card'>
                 <img src={item.snippet.thumbnails.medium.url} alt="Video Thumbnail" />
-                <h4 class="video-title">Understanding React Hooks</h4>
-                       <p class="video-channel">CodeAcademy</p>
-                       <p class="video-meta">2M views • 2 days ago</p>
+                <h4 class="video-title">{item.snippet.title}</h4>
+                       <p class="video-channel">{item.snippet.channelTitle}</p>
+                       <p class="video-meta">{item.statistics.viewCount}views• {item.snippet.publishedAt}</p>
                </Link>
        
             )

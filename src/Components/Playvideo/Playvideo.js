@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Playvideo.css';
 import Like from '../../assets/Like.jpeg';
 import Dislike from '../../assets/Dislike.png';
@@ -6,15 +6,34 @@ import Share from '../../assets/Share.png';
 import Save from '../../assets/Save.png';
 import video1 from '../../assets/video1.mp4';
 import zakir from '../../assets/zakir.jpeg'
+import { API_KEY } from '../../data';
 
-const playvideo = () => {
+const Playvideo = ({videoId}) => {
+
+ const[apiData,setapiData]=useState(null);
+
+ const fetchVideoData = async () => {
+    const videoDetailUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`;
+    
+    try {
+      const response = await fetch(videoDetailUrl);
+      const data = await response.json();
+      setapiData(data.items[0]);
+    } catch (error) {
+      console.error('Error fetching the video data:', error);
+    }
+  };
+  
+ useEffect(()=>{
+      fetchVideoData();
+ },[])
   return (
     <div className='play-video'>
-      <video src={ video1} controls autoPlay muted></video>
-      <h3>one and nly stand up comedian mr. zakir khan</h3>
+      {/* <video src={ video1} controls autoPlay muted></video> */}
+      <iframe  src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <h3>{apiData.snippet.title}</h3>
       <div className='play-video-info'>
-        <p>zakir khan</p>
-        <p>200k views • 15min ago</p>
+        <p>{apiData.statistics.viewCount}views • {apiData.snippet.publishedAt}</p>
         <div>
             <span><img src={Like} alt=""/>125</span>
             <span><img src={Dislike}alt=""/>23</span>
@@ -97,4 +116,4 @@ const playvideo = () => {
   )
 }
 
-export default playvideo;
+export default Playvideo;
