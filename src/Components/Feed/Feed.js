@@ -33,7 +33,7 @@ const Feed = ({category}) => {
 
   return (
     <div className='Feed'>
-        {data.map((item,index)=>{
+        {data?.map((item,index)=>{
             return(
                 <Link to={`Video/${item.snippet.categoryId}/${item.id}`} key={index}className='Card'>
                 <img src={item.snippet.thumbnails.medium.url} alt="Video Thumbnail" />
