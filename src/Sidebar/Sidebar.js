@@ -12,7 +12,7 @@
         </div>
         <div className={`sidebar-item ${category===10?"active":""}`} onClick={()=>setcategory(10)}>
             <i className="fas fa-fire"></i>
-            <span>music</span>
+            <span>Music</span>
         </div>
 
         <div className={`sidebar-item ${category===17?"active":""}`}  onClick={()=>setcategory(17)}>
@@ -25,34 +25,22 @@
         </div>
         <div className={`sidebar-item ${category===24?"active":""}`}  onClick={()=>setcategory(24)}>
             <i className="fas fa-fire"></i>
-            <span>entertainment</span>
+            <span>Entertainment</span>
         </div>
 
         <div className={`sidebar-item ${category===28?"active":""}`}  onClick={()=>setcategory(28)}>
             <i className="fas fa-fire"></i>
-            <span>Technology</span>
+            <span>Science & Technology</span>
         </div>
-        <div className={`sidebar-item ${category===0?"active":""}`}  onClick={()=>setcategory(0)}>
+        <div className={`sidebar-item ${category===0?"active":""}`}  onClick={()=>setcategory(20)}>
             <i className="fas fa-play-circle"></i>
-            <span>Subscriptions</span>
+            <span>Gaming</span>
         </div>
-        <hr/>
-        <div className="sidebar-item" onClick={()=>setcategory(0)}>
-            <i className="fas fa-thumbs-up"></i>
-            <span>Liked Videos</span>
+        <div className={`sidebar-item ${category===0?"active":""}`}  onClick={()=>setcategory(23)}>
+            <i className="fas fa-play-circle"></i>
+            <span>Comedy</span>
         </div>
-        <div className="sidebar-item" onClick={()=>setcategory(0)}>
-            <i className="fas fa-history"></i>
-            <span>History</span>
-        </div>
-        <div className="sidebar-item"onClick={()=>setcategory(0)}>
-            <i className="fas fa-clock"></i>
-            <span>Watch Later</span>
-        </div>
-        <div className="sidebar-item"onClick={()=>setcategory(0)}>
-            <i className="fas fa-cog"></i>
-            <span>Settings</span>
-        </div>
+       
     </div>
     );
   }

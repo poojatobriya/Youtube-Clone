@@ -2,14 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Feed.css';
 import { Link } from "react-router-dom";
 // import {moment} from 'react-moment';
-import thumbnail1 from '../../assets/thumbnail1.jpeg';
-import thumbnail2 from '../../assets/thumbnail2.jpeg';
-import thumbnail3 from '../../assets/thumbnail3.png';
-import thumbnail4 from '../../assets/thumbnail4.jpeg';
-import thumbnail5 from '../../assets/thumbnail5.jpeg';
-import thumbnail6 from '../../assets/thumbnail6.jpeg';
-import thumbnail7 from '../../assets/thumbnail7.jpeg';
-import thumbnail8 from '../../assets/thumbnail8.jpeg';
+
 import { API_KEY } from '../../data';
 
 const Feed = ({category}) => {
@@ -23,7 +16,7 @@ const Feed = ({category}) => {
 
     const fetchData = async () => {
         const videoListUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`;
-        
+        //regionCode=US
         try {
             const response = await fetch(videoListUrl);
             const data = await response.json();
@@ -40,9 +33,9 @@ const Feed = ({category}) => {
 
   return (
     <div className='Feed'>
-        {data.map((item,idex)=>{
+        {data.map((item,index)=>{
             return(
-                <Link to={`Video/${item.snippet.categoryId}/${item.id}`} className='Card'>
+                <Link to={`Video/${item.snippet.categoryId}/${item.id}`} key={index}className='Card'>
                 <img src={item.snippet.thumbnails.medium.url} alt="Video Thumbnail" />
                 <h4 class="video-title">{item.snippet.title}</h4>
                        <p class="video-channel">{item.snippet.channelTitle}</p>

@@ -1,15 +1,15 @@
 
-.feed{
+.Feed{
     
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column-gap: 16px;
-    grid-row-gap:50px;
+    grid-column-gap: 12px;
+    grid-row-gap:15px;
     
     margin-top: 15px;
     
 }
-.card-img{
+.Card img{
     width:100%;
     border-radius: 8px;
 }
@@ -17,7 +17,7 @@
     background-color: #fff;
     border-radius: 8px;
     border-color: 3px solid black;
-    
+    text-decoration: none;
 
     
 }
@@ -39,3 +39,32 @@
     font-size: 12px;
     color: #909090;
 } 
+
+@media (max-width: 576px) {
+    .Feed {
+        grid-template-columns: 1fr;
+        grid-column-gap: 8px;
+        grid-row-gap: 10px;
+    }
+
+    .Card {
+        padding: 6px;
+        border-radius: 6px;
+    }
+
+    .Card img {
+        border-radius: 6px;
+    }
+
+    .video-title {
+        font-size: 13px;
+    }
+
+    .video-channel {
+        font-size: 11px;
+    }
+
+    .video-meta {
+        font-size: 9px;
+    }
+}

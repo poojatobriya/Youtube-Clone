@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './Recommended.css';
-import thumbnail1 from '../../assets/thumbnail1.jpeg';
-import thumbnail2 from '../../assets/thumbnail2.jpeg';
-import thumbnail3 from '../../assets/thumbnail3.png';
-import thumbnail4 from '../../assets/thumbnail4.jpeg';
-import thumbnail5 from '../../assets/thumbnail5.jpeg';
-import thumbnail6 from '../../assets/thumbnail6.jpeg';
-import thumbnail7 from '../../assets/thumbnail7.jpeg';
-import thumbnail8 from '../../assets/thumbnail8.jpeg';
+import {Link} from 'react-router-dom';
 
-const recommended = ({categoryId}) => {
+import { API_KEY } from '../../data';
+
+const Recommended = ({categoryId}) => {
 
  const [apiData,setapiData]=useState([]);
 
  const fetchData = async () => {
-    const relatedvideoUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryId}&key=${API_KEY}`;
-    
+    const relatedvideoUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=45&regionCode=US&videoCategoryId=${categoryId}&key=${API_KEY}`;
+                           //https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&videoCategoryId=0&key=[YOUR_API_KEY]
     try {
         const response = await fetch(relatedvideoUrl);
         const data = await response.json();
@@ -27,25 +22,28 @@ const recommended = ({categoryId}) => {
 
  useEffect(()=>{
         fetchData();
- },[])
+ },[]);
 
   return (
     <div className='recommended'>
-      <div className='side-video-list'>
-        <img src={thumbnail1} alt=""/>
-        <div className='vid-info'>
-            <h4>
-              best chanel to helo to be a web developer
-            </h4>
-            <p>great stack</p>
-            <p>199k views</p>
-        </div>
-      </div>
 
-     
+     {apiData.map((item,index)=>{
+        return(
+            <Link to={`/video/${item.snippet.categoryId}/${item.id}`} key={index} className='side-video-list'>
+            <img src={item.snippet.thumbnails.medium.url} alt=""/>
+            <div className='vid-info'>
+                <h4>{item.snippet.title}</h4>
+                <p>{item.snippet.channelTitle}</p>
+                <p>{item.statistics.viewCount} views</p>
+            </div>
+          </Link>
+        )
+     })}
+
+      
 
     </div>
   )
 }
 
-export default recommended
+export default Recommended;

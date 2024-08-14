@@ -1,4 +1,5 @@
 import React from 'react'
+import './Navbar.css';
 
 
 const Navbar = () => {
@@ -6,7 +7,7 @@ const Navbar = () => {
     <nav class="navbar bg-dark border-bottom border-body  fixed-top" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
-        <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"/>
+        <img src="C:\Users\drama\Desktop\Youtube-clone\src\assets\youtube.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"/>
         Youtube
       </a>
       <form class="d-flex" role="search">

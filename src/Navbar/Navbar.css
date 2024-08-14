@@ -1,0 +1,41 @@
+/* Default styles for desktop and larger screens */
+.navbar-brand img {
+    width: 30px;
+    height: 24px;
+  }
+  
+  .form-control {
+    width: auto;
+  }
+  
+  .btn {
+    white-space: nowrap;
+  }
+ 
+  
+  /* Media Query for screens smaller than 576px (mobile devices) */
+  @media (max-width: 576px) {
+    .navbar-brand {
+      font-size: 14px;
+    }
+  
+    .navbar-brand img {
+      width: 24px;
+      height: 20px;
+    }
+  
+    .form-control {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .d-flex {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .btn {
+      width: 100%;
+    }
+  }
+  
