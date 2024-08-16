@@ -7,12 +7,13 @@ import Share from '../../assets/Share.png';
 import Save from '../../assets/Save.png';
 
 import { API_KEY } from '../../data';
-import moment from 'react-moment';
+import moment from 'moment';
 
 
 const Playvideo = () => {
 
- const {videoId}=useParams();
+ const videoId=useParams().videoId;
+ console.log(videoId)
 
  const[apiData,setapiData]=useState(null);
  const[channelData,setchannelData]=useState(null);
@@ -32,7 +33,7 @@ const Playvideo = () => {
 
   const fetchotherData = async () => {
     //feching channel data
-    const videoChannelUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apiData.snippet.channelId}&key=${API_KEY}`;
+    const videoChannelUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apiData?.snippet?.channelId}&key=${API_KEY}`;
                           // https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UC_x5XG1OV2P6uZZ5FSM9Ttw&key=[YOUR_API_KEY]
     try {
       const response = await fetch(videoChannelUrl);
@@ -94,7 +95,7 @@ const Playvideo = () => {
             <hr/>
             <h4> {apiData?apiData.statistics.commentCount:150}comments</h4>
 
-            {commentData.map((item, index)=>{
+            {commentData?.map((item, index)=>{
                  return(
                     <div key={index} className='comments'>
                     <img src={item.snippet.topLevelComment.snippet.authorProfileImageUrl} alt=""/>
