@@ -5,8 +5,7 @@ import Like from '../../assets/Like.jpeg';
 import Dislike from '../../assets/Dislike.png';
 import Share from '../../assets/Share.png';
 import Save from '../../assets/Save.png';
-// import video1 from '../../assets/video1.mp4';
-// import zakir from '../../assets/zakir.jpeg';
+
 import { API_KEY } from '../../data';
 import moment from 'react-moment';
 
